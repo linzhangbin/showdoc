@@ -1,0 +1,14 @@
+# 忽略不需要部署的文件
+server/
+Sqlite/
+docker-compose.yml
+Dockerfile*
+*.md
+.git/
+.github/
+documentation/
+install/
+mock/
+composer.json
+composer.lock
+.htaccess

@@ -19,16 +19,14 @@
       content="一个非常适合IT团队的API文档、技术文档工具"
     />
     <script type="text/javascript">
-      // 挂在window下的全局配置
+      // 挂在window下的全局配置 - 适配 Vercel 部署
       window.DocConfig = {
-        // "server":'http://127.0.0.1/showdoc/server/index.php?s=',
+        // 使用 Vercel Serverless Functions 作为 API 端点
         server:
           window.location.protocol +
           '//' +
           window.location.host +
-          window.location.pathname +
-          '../server/index.php?s=',
-        // "lang" :'en'
+          '/api/',
         lang: 'zh-cn'
       }
     </script>
