@@ -1,8 +1,16 @@
 {
   "version": 2,
   "name": "showdoc",
-  "buildCommand": "npm run build",
-  "outputDirectory": "Public",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/node@3.0.7"
+    },
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node@3.0.7"
+    }
+  ],
   "routes": [
     {
       "src": "/api/(.*)",
@@ -10,18 +18,13 @@
     },
     {
       "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|svg|ico|woff|woff2|ttf|eot))",
-      "dest": "/$1"
+      "dest": "/Public/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.html"
+      "dest": "/Public/index.html"
     }
   ],
-  "functions": {
-    "api/index.js": {
-      "runtime": "nodejs18.x"
-    }
-  },
   "env": {
     "NODE_ENV": "production"
   }
